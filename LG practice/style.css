@@ -1,0 +1,319 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    margin: 0 0%;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+}
+
+.label {
+    width: 10%;
+}
+
+.spisok {
+    width: calc(90% - 5px);
+}
+
+ul.dropdown-menu-dark {
+    width: 100%;
+}
+
+h1 {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 40px;
+}
+
+video.video {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+}
+
+#videoContainer {
+    position: relative;
+    width: 90%;
+    margin: 0px 5%;
+    /* position: absolute;
+    width: 100%;
+    margin: 0; */
+    left: 0;
+    top: 0;
+}
+
+.panel {
+    display: flex;
+    position: absolute;
+    left: 0;
+    bottom: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.75);
+    width: 100%;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: bottom 0.5s ease;
+}
+
+.hide-panel {
+    opacity: 0 !important;
+    /* Панель будет скрыта */
+    pointer-events: none;
+    /* Отключаем события для скрытой панели */
+}
+
+.dropdown-menu-dark {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+
+}
+
+#play,
+#forward,
+#back,
+#mute,
+#full,
+#settings,
+#info,
+#closeIcon {
+    float: left;
+    width: 35px;
+    height: 35px;
+    border: 0px;
+    color: #ffffff;
+    background: hsla(0, 0%, 0%, 0);
+}
+
+#curr-time,
+#duration {
+    float: left;
+    width: 70px;
+    height: 40px;
+    color: #ffffff;
+    padding-top: 8px;
+}
+
+#curr-time {
+    margin-left: 10px;
+}
+
+.progress-container {
+    position: relative;
+    width: calc(100% - 385px);
+    height: 15px;
+    margin-top: 12px;
+    float: left;
+    margin-right: 15px;
+    border: 2px solid white;
+    z-index: 3;
+}
+
+.progress-bar {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#progress-pointer {
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: 0px;
+    left: 0;
+    top: 0;
+    border: 2px solid white;
+    pointer-events: none;
+    z-index: 2;
+}
+
+#progress {
+    z-index: 2;
+    width: 0px;
+    background-color: white;
+}
+
+#buffer-progress {
+    z-index: 1;
+    width: 0px;
+    background-color: grey;
+    ;
+}
+
+#progress-container:hover,
+#videoQuality:hover {
+    cursor: pointer;
+}
+
+#volume {
+    appearance: none;
+    outline: none;
+    float: left;
+    width: 80px;
+    height: 35px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+#volume::-webkit-slider-runnable-track {
+    width: 100%;
+    align-items: center;
+    overflow: hidden;
+    height: 10px;
+    background-color: rgb(0, 0, 0, 0.5);
+    border-radius: 5px;
+    border: 1px solid white;
+}
+
+#volume::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    margin-top: -5%;
+    align-items: center;
+    width: 0.1px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: -80px 0 0 80px white;
+    cursor: pointer;
+}
+
+#tooltip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border-radius: 4px;
+    z-index: 3;
+}
+
+#settings {
+    margin: 0;
+    --bs-btn-padding-x: 0;
+    --bs-btn-padding-y: 0;
+}
+
+.btn-group.dropup {
+    float: left;
+    width: 35px;
+    height: 35px;
+    border: 0px;
+    color: #ffffff;
+    background: hsla(0, 0%, 0%, 0);
+}
+
+.btn-group.dropup>.dropdown-toggle::after {
+    display: none;
+}
+
+.dropdown-menu {
+    --bs-dropdown-min-width: 5.5rem;
+    background-clip: initial;
+}
+
+#videoContainer:hover .panel {
+    opacity: 1;
+    /* Положение панели при наведении на видео */
+    z-index: 2;
+}
+
+#volumeSliderContainer {
+    display: none;
+    /* По умолчанию ползунок скрыт */
+    position: absolute;
+    top: -60px;
+    /* Расположение ползунка по вертикали */
+    left: calc(100% - 160px);
+    /* Расположение ползунка по горизонтали */
+    transform: translateX(-50%);
+    /* Центрирование ползунка по горизонтали */
+    z-index: 2;
+    /* Ползунок поверх остальных элементов */
+    transform: rotate(270deg);
+}
+
+#mute:hover+#volumeSliderContainer,
+#volumeSliderContainer:hover {
+    display: block;
+    /* Показываем ползунок при наведении */
+}
+
+#media-info-window {
+    opacity: 0;
+    position: absolute;
+    width: 450px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 14px;
+    overflow-wrap: break-word;
+    z-index: 2;
+}
+
+#media-info-window h3 {
+    margin-left: 10px;
+    /* Расположить справа от кнопки */
+    float: left;
+}
+
+#media-info-window p {
+    font-size: 16px;
+    margin-bottom: 10px;
+    margin-left: 7.5px;
+}
+
+#closeIcon {
+    z-index: 5;
+}
+
+img {
+    cursor: pointer;
+}
+
+button:focus {
+    outline: none;
+}
+
+#streamURL {
+    width: 90%;
+    margin: 0px 5%;
+}
+
+#logContainer {
+    margin: 0px 5%;
+    height: 250px;
+}
+
+#logTextarea {
+    font-size: 16px;
+    width: 100%;
+    padding: 1%;
+    height: 250px;
+    resize: none;
+    color: white;
+    background-color: black;
+}
+
+#currentResolutionLabel {
+    font-size: 32px;
+    text-align: center;
+    color: white;
+}
+
+#currentResolution {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: black;
+    width: 150px;
+    height: 45px;
+}
